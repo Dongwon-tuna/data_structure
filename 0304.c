@@ -20,5 +20,5 @@ void main(){
         printf("%d: %d\n",i+1, parr[i]);
     }
     
-    //find most frequent number...> algorithm need.
+    //find most frequent number...> algorithm need!!
 }
