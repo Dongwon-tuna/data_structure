@@ -28,27 +28,19 @@ node *insert_after(int k, node *t){
 
 void print(node *a){
     
-    printf("insert result head add: %d\n",a);
-    printf("next head: %d\n",a->next);
     node *t;
+    t = a;
+    printf("======================\nhead address: %d\n",t);
     t = t->next;
-    printf("insert result head add1: %d\n",t);
-    t = t->next;
-    printf("insert result head add2: %d\n",t);
-    t = t->next;
-    printf("insert result head add3: %d\n",t);
-
-    // while (1)
-    // {
-    //     t = a->next;
-    //     printf("key: %d\n",t->key);
-    //     if (t->next == tail)
-    //     {
-    //         printf("now t is nexting tail\n");
-    //         break;
-    //     }
-
-    // }
+    while (t != tail)
+    {
+        printf("======================\n");
+        printf("added address: %d\n",t);
+        printf("added key: %d\n",t->key);
+        
+        t = t->next;
+    }
+    printf("======================\ntail address: %d\n",t);
     
   
     
@@ -58,11 +50,14 @@ void main(){
     printf("init head address: %d\n",head);
     printf("init tail address: %d\n",tail);
     //insert_after(4,insert_after(3,head));
-    printf("after insert func in main order %d\n",insert_after(5,head));
-    insert_after(6,insert_after(5,head));
-    //insert_after(5,head->next);
-    //printf("init head next address: %d\n",head->next);
-    //printf("after insert func in main order %d\n",insert_after(4,head->next));
+    node *a;
+    a = insert_after(5,head);
+    node *b;
+    b = insert_after(6,a);
+    node *c;
+    c =insert_after(7,b);
+    insert_after(8,c);
+    
     print(head);
 
 
