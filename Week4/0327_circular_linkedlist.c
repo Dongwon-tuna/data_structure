@@ -62,14 +62,14 @@ void josephus(int n, int m){//총 n명의 인원중에서 m 번째 인원을 제
     while (t != t->next)
     {
        
-        for (int i = 0; i < m-2 ; i++)
+        for (int i = 0; i < m-1 ; i++)
         {
             t = t->next;
         }
         
         printf("%d ",t->next->key);
         delete_after(t);
-        t = t->next;
+        //t = t->next;//주석 처리한 것은 원래 규칙, 하지만 주석처리를 한 이유는 교수님의 방법에는 다음이 필요 없음.
         
     }
     t = t->next;
@@ -82,6 +82,6 @@ void main(){
     
 
     printf("\njosephus\n");
-    josephus(5,3);
+    josephus(10,4);
 
 }
