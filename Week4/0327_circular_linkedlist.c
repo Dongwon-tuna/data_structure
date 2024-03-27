@@ -9,14 +9,6 @@ typedef struct _node{
 
 node *head;
 
-// void init_list(){
-//     head = (node*)calloc(1,sizeof(node));
-//     tail = (node*)calloc(1,sizeof(node));
-//     head->next = tail;
-//     tail->next = tail;
-// }
-
-
 
 void delete_after(node *t){
     node *temp;
@@ -60,25 +52,28 @@ void insert_nodes(int k){
     printf("%c ",(t->next->key)-1+'A');
 }
 
-void josephus(int n, int m){
+void josephus(int n, int m){//총 n명의 인원중에서 m 번째 인원을 제거시키고, 다음 과정을 계속 수행.
     node *t;
-    int i;
+    
     insert_nodes(n);
     t = head;
-    printf("\n%c\n",(t->key)-1+'A');
-    printf("\nanswer\n");
+    printf("\nAnswer\n");
+    
     while (t != t->next)
     {
-        for ( i = 0; i < m-1; i++)
+       
+        for (int i = 0; i < m-2 ; i++)
         {
             t = t->next;
-            
         }
-        printf("%d ",t->key);
-        delete_after(t);
         
-    }  
-    printf("%d ",t->key); 
+        printf("%d ",t->next->key);
+        delete_after(t);
+        t = t->next;
+        
+    }
+    t = t->next;
+    printf("%d ",t->next->key);
     
     
 }
@@ -87,6 +82,6 @@ void main(){
     
 
     printf("\njosephus\n");
-    josephus(5,2);
+    josephus(5,3);
 
 }
